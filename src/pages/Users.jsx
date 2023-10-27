@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 const Users = () => {
 
@@ -15,8 +16,11 @@ const Users = () => {
         <div className="col-md-6">
             <ul className="list-group">
                 {users.map(user => ((
-                    <li key={`user-${user.id}`} className="list-group-item">
-                        {user.username}
+                    <li key={`user-${user.id}`} className="list-group-item d-flex justify-content-between align-items-center">
+                        <span>{user.username}</span>
+                        <Link to="/" className="btn btn-outline-primary">
+                            Full Details
+                        </Link>
                     </li>
                 )))}
             </ul>

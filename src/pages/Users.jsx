@@ -18,7 +18,7 @@ const Users = () => {
                 {users.map(user => ((
                     <li key={`user-${user.id}`} className="list-group-item d-flex justify-content-between align-items-center">
                         <span>{user.username}</span>
-                        <Link to="/" className="btn btn-outline-primary">
+                        <Link to={`/users/${user.id}`} className="btn btn-outline-primary">
                             Full Details
                         </Link>
                     </li>

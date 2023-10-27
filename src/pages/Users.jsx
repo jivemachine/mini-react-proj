@@ -1,10 +1,24 @@
+import { useState, useEffect } from "react";
+
 const Users = () => {
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then(res => res.json())
+            .then(data => setUsers(data))
+            .catch(event => alert(event.message));
+    }, []);
+
     return (
         <div className="col-md-6">
             <ul className="list-group">
-                <li className="list-group-item">
-                    Test UserName
-                </li>
+                {users.map(user => ((
+                    <li key={`user-${user.id}`} className="list-group-item">
+                        {user.username}
+                    </li>
+                )))}
             </ul>
 
         </div>
